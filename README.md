@@ -1,5 +1,4 @@
-# selfstudys-pdf-downloader
-# 📚 SelfStudys PDF Downloader (Custom UI)
+# 📚 SelfStudys PDF Downloader 
 
 A customized browser script that completely bypasses the restrictive Adobe Embed and Flipbook viewers on selfstudys.com. It extracts the hidden files, automatically names them correctly, and injects a sleek, animated download dock right onto your screen. 
 
@@ -16,7 +15,7 @@ Tampermonkey is a safe, standard browser extension that allows custom scripts to
 
 ### Step 2: Install the Script
 Once Tampermonkey is added to your browser:
-1. **[👉 CLICK HERE TO INSTALL THE SCRIPT 👈](https://raw.githubusercontent.com/sam15x7/YOUR-REPO-NAME/main/selfstudys-downloader.user.js)** *(Note: Replace "YOUR-REPO-NAME" in this link with your actual repository name before saving!)*
+1. **[👉 CLICK HERE TO INSTALL THE SCRIPT 👈](https://raw.githubusercontent.com/sam15x7/selfstudys-downloader/main/selfstudys-downloader.user.js)** *(Note: Replace "YOUR-REPO-NAME" in this link with your actual repository name before saving!)*
 2. A new tab will open showing the Tampermonkey dashboard.
 3. Click the big **Install** button.
 
