@@ -15,7 +15,7 @@ Tampermonkey is a safe, standard browser extension that allows custom scripts to
 
 ### Step 2: Install the Script
 Once Tampermonkey is added to your browser:
-1. **[👉 CLICK HERE TO INSTALL THE SCRIPT 👈](https://raw.githubusercontent.com/sam15x7/selfstudys-downloader/main/selfstudys-downloader.user.js)** *(Note: Replace "YOUR-REPO-NAME" in this link with your actual repository name before saving!)*
+1. **[👉 CLICK HERE TO INSTALL THE SCRIPT 👈](https://raw.githubusercontent.com/sam15x7/selfstudys-downloader/main/selfstudys-downloader.user.js)** 
 2. A new tab will open showing the Tampermonkey dashboard.
 3. Click the big **Install** button.
 
