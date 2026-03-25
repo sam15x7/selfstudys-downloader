@@ -1,1 +1,1 @@
-# selfstudysr-pdf-downloader
+# selfstudys-pdf-downloader
