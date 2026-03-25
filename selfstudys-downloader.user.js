@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         SelfStudys PDF Downloader (Portfolio UI Edition)
+// @name         SelfStudys PDF Downloader
 // @namespace    http://tampermonkey.net/
 // @version      1.7
 // @description  Bypasses PDF restrictions, auto-names files perfectly, and includes a custom social dock.
-// @author       You
+// @author       Samihan (github.com/sam15x7)
 // @match        *://*.selfstudys.com/*
 // @grant        none
 // ==/UserScript==
@@ -122,7 +122,7 @@
               display: flex; align-items: center; justify-content: center;
             }
             .state .icon svg { overflow: visible; stroke: #333; }
-            
+
             .outline {
               position: absolute; border-radius: inherit; overflow: hidden; z-index: 1; opacity: 0; transition: opacity 0.4s ease; inset: -2px -3.5px;
             }
@@ -137,7 +137,7 @@
             .state p span { display: block; opacity: 0; animation: slideDown 0.8s ease forwards calc(var(--i) * 0.03s); }
             .mod-button:hover p span { opacity: 1; animation: wave 0.5s ease forwards calc(var(--i) * 0.02s); }
             .mod-button:focus p span { opacity: 1; animation: disapear 0.6s ease forwards calc(var(--i) * 0.03s); }
-            
+
             @keyframes wave {
               30% { opacity: 1; transform: translateY(4px) translateX(0) rotate(0); }
               50% { opacity: 1; transform: translateY(-3px) translateX(0) rotate(0); color: var(--primary); }
@@ -155,7 +155,7 @@
             .mod-button:hover .state--default .icon { transform: rotate(45deg) scale(1.25); }
             .mod-button:focus .state--default svg { animation: takeOff 0.8s linear forwards; }
             .mod-button:focus .state--default .icon { transform: rotate(0) scale(1.25); }
-            
+
             @keyframes takeOff {
               0% { opacity: 1; }
               60% { opacity: 1; transform: translateX(70px) rotate(45deg) scale(2); }
@@ -175,7 +175,7 @@
             .state--default span:nth-child(4) { margin-right: 5px; }
             .state--sent { display: none; }
             .state--sent svg { transform: scale(1.25); margin-right: 8px; stroke: var(--primary); }
-            
+
             .mod-button:focus .state--default { position: absolute; }
             .mod-button:focus .state--sent { display: flex; }
             .mod-button:focus .state--sent span { opacity: 0; animation: slideDown 0.8s ease forwards calc(var(--i) * 0.2s); }
@@ -252,12 +252,12 @@
         dlBtn.addEventListener('mousedown', function() {
             setTimeout(() => {
                 let pdfUrl = '';
-                let pdfName = 'SelfStudys_Document'; 
+                let pdfName = 'SelfStudys_Document';
 
                 const scripts = document.getElementsByTagName('script');
                 for (let i = 0; i < scripts.length; i++) {
                     const scriptContent = scripts[i].innerHTML;
-                    
+
                     // 1. Get the URL
                     if (!pdfUrl) {
                         const match = scriptContent.match(/var\s+pdfPath\s*=\s*["']([^"']+)["']/i);
@@ -277,7 +277,7 @@
                         const adobeNameMatch = scriptContent.match(/fileName:\s*["']([^"']+)["']/i);
                         if (adobeNameMatch && adobeNameMatch[1]) {
                             pdfName = adobeNameMatch[1];
-                        } 
+                        }
                         // If not Adobe, safely check for Normal Embed ONLY inside the apiData object
                         else {
                             const apiDataMatch = scriptContent.match(/apiData\s*=\s*\{[\s\S]*?title\s*:\s*["']([^"']+)["']/i);
@@ -290,26 +290,26 @@
 
                 // Ultimate fallback to browser tab title
                 if (pdfName === 'SelfStudys_Document' && document.title) {
-                    pdfName = document.title.split('|')[0].trim(); 
+                    pdfName = document.title.split('|')[0].trim();
                 }
 
                 // Clean and trigger download
                 if (pdfUrl) {
-                    pdfName = pdfName.replace(/[\/\\?%*:|"<>]/g, '-'); 
+                    pdfName = pdfName.replace(/[\/\\?%*:|"<>]/g, '-');
                     if (!pdfName.toLowerCase().endsWith('.pdf')) {
                         pdfName += '.pdf';
                     }
 
                     const link = document.createElement('a');
                     link.href = pdfUrl;
-                    link.download = pdfName; 
+                    link.download = pdfName;
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
                 } else {
                     alert('Could not find the hidden PDF link on this specific page.');
                 }
-            }, 800); 
+            }, 800);
         });
 
         // Append to container, then container to body
